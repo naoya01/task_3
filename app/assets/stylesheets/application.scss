@@ -16,3 +16,12 @@
 @import "bootstrap";
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
+
+.nav-link{
+  color: white!important;
+  &:hover{
+    opacity:0.7;
+    text-decoration:none;
+    transition:.2s;
+  }
+}
