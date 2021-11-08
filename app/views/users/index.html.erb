@@ -1,1 +1,52 @@
-users(index)
+<div class="container px-5 px-sm-0">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>Use info</h2>
+     <%= attachment_image_tag user, :image, :fill, 100, 100, format: 'jpeg' %>
+      <table class="table">
+        <today>
+          <tr>
+            <th scope="col">neme</th>
+            <th scope="col"><%= current_user.name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <th></th>
+          </tr>
+        </today>
+      </table>
+      <%= link_to '', edit_user_path(current_user.id), class: 'fas fa-user-cog btn btn-outline-secondary btn-block' %>
+      <h2 class="mt-3">New book</h2>
+        <%= form_with model: @book, local:true do |f| %>
+
+          <div class="form-group">
+            <%= f.label :title %><br />
+            <%= f.text_field :title, class:"form-control" %>
+          </div>
+          <div class="form-group">
+          <%= f.label :option %><br />
+          <%= f.text_area :body, class:"form-control", rows:"3" %>
+          </div>
+          <div class="form-group">
+          <%= f.submit 'Create Book', class:"btn btn-lg btn-block btn-success mt-4" %>
+          </div>
+        <% end %>
+    </div>
+    <div class="col-md-8 offset-md-1">
+      <h2>Users</h2>
+      <table class="table table-hover table-inverse">
+        <thead>
+          <tr>
+            <th>image</th>
+            <th>nmae</th>
+            <th></th>
+          </tr>
+        </thead>
+        <today>
+
+        </today>
+      </table>
+
+    </div>
+  </div>
+</div>
