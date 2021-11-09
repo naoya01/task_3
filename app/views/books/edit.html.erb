@@ -1,9 +1,15 @@
+<% if @book.errors.any? %>
+  <%= @book.errors.count %>件のエラーが発生しました
+  <% @book.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
 <div class="container">
   <div class="row">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h2>Editing Book<h2>
+      <h2>Editing Book</h2>
       <%= form_with model: @book, local:true do |f| %>
-      
+
         <div class="form-group">
           <%= f.label :title %><br />
           <%= f.text_field :title, class:"form-control" %>
@@ -16,6 +22,9 @@
           <%= f.submit 'Update Book', class:"btn btn-lg btn-block btn-success mt-4" %>
         </div>
       <% end %>
-    </div>    
+      <%= link_to "Show",book_path %>
+      <span>|</span>
+      <%= link_to "Back",books_path %>
+    </div>
   </div>
 </div>
