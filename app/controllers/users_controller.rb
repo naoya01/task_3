@@ -1,14 +1,17 @@
 class UsersController < ApplicationController
 
   def index
-    @user = User.all
-    @post_images = @user.post_images.page(params[:page]).reverse_order
-
+    @books = Book.all
+    @users = User.all
+    # @user = User.page(params[:page]).reverse_order
+    # @user = User.find(params[:id])
   end
 
   def show
     @user = User.find(params[:id])
-
+    @books = @user.books.all
+    @book = Book.new
+    @users = User.all
   end
 
   def edit
@@ -18,7 +21,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if  @user.update(user_params)
-      redirect_to user_path(@user.id)
+      redirect_to user_path(@user.id),notice:"You have updated user successfully."
     else
       @User = User.all
       render:index
